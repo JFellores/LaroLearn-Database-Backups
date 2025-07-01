@@ -6,7 +6,7 @@ permissions:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 18 * * *'  # 2 AM Manila / 18:00 UTC
+    - cron: '0 18 * * *'  # 2 AM Manila (UTC+8) / 18:00 UTC
 
 jobs:
   backup:
@@ -19,15 +19,18 @@ jobs:
           persist-credentials: true
           fetch-depth: 0
 
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install deps
-        run: npm ci               # or `npm install` if you don't have a lockfile
+      - name: Install Firestore deps
+        run: npm install firebase-admin
 
-      - name: Dump RTDB & commit
+      - name: Dump RTDB & Commit
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_CI_TOKEN }}
           PROJECT:        ${{ secrets.FIREBASE_PROJECT_ID }}
@@ -44,12 +47,11 @@ jobs:
           git add backups/rtdb/"$DATE".json
           git commit -m "RTDB backup $DATE" || echo "No RTDB changes"
 
-      - name: Dump Firestore & commit
+      - name: Dump Firestore & Commit
         env:
           FIRESTORE_SA_KEY: ${{ secrets.FIRESTORE_SA_KEY }}
         run: |
           node scripts/backup-firestore.js
-
           DATE=$(date -u +'%Y-%m-%d')
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
