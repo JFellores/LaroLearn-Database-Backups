@@ -1,9 +1,9 @@
-name: Daily Realtime-DB Backup
+name: Daily RTDB Backup
 
 on:
-  workflow_dispatch:    # ← add this line
+  workflow_dispatch:
   schedule:
-    - cron: '0 18 * * *' # (2 AM Manila / 18:00 UTC)
+    - cron: '0 18 * * *'
 
 jobs:
   backup:
@@ -11,14 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
-      - name: Dump RTDB to JSON
+      - name: Dump RTDB & Commit backup
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_CI_TOKEN }}
-          PROJECT:      ${{ secrets.FIREBASE_PROJECT_ID }}
+          PROJECT:        ${{ secrets.FIREBASE_PROJECT_ID }}
         run: |
           DATE=$(date -u +'%Y-%m-%d')
           mkdir -p backups
@@ -27,10 +30,8 @@ jobs:
             --token "$FIREBASE_TOKEN" \
             > backups/"$DATE".json
 
-      - name: Commit & Push backup
-        run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add backups/"$DATE".json
           git commit -m "Backup $DATE" || echo "No changes to commit"
-          git push
+          git push origin HEAD:main
