@@ -6,30 +6,35 @@ permissions:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 18 * * *'  # 2 AM Manila (UTC+8) / 18:00 UTC
+    - cron: '0 18 * * *'  # 2 AM Manila / 18:00 UTC
 
 jobs:
   backup:
     runs-on: ubuntu-latest
 
     steps:
+      # 1) Checkout your repo
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
           persist-credentials: true
           fetch-depth: 0
 
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
+      # 2) Set up Node.js ≥20
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
+      # 3) Install the Firebase CLI (now on Node 20, so no engine errors)
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # 4) Install the Admin SDK for Firestore
       - name: Install Firestore deps
         run: npm install firebase-admin
 
+      # 5) Dump RTDB & commit to repo
       - name: Dump RTDB & Commit
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_CI_TOKEN }}
@@ -47,6 +52,7 @@ jobs:
           git add backups/rtdb/"$DATE".json
           git commit -m "RTDB backup $DATE" || echo "No RTDB changes"
 
+      # 6) Dump Firestore & commit
       - name: Dump Firestore & Commit
         env:
           FIRESTORE_SA_KEY: ${{ secrets.FIRESTORE_SA_KEY }}
@@ -58,5 +64,6 @@ jobs:
           git add backups/firestore/"$DATE"
           git commit -m "Firestore backup $DATE" || echo "No Firestore changes"
 
+      # 7) Push everything
       - name: Push all backups
         run: git push origin HEAD:main
