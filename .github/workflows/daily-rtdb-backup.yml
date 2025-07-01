@@ -1,8 +1,9 @@
 name: Daily Realtime-DB Backup
 
 on:
+  workflow_dispatch:    # ← add this line
   schedule:
-    - cron: '0 18 * * *'    # 2 AM Manila / 18:00 UTC
+    - cron: '0 18 * * *' # (2 AM Manila / 18:00 UTC)
 
 jobs:
   backup:
