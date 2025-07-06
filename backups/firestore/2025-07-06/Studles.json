@@ -1,0 +1,30 @@
+{
+  "3thMoOH1ZuVuFIQ9r6ep": {
+    "difficulty": "easy",
+    "gameType": "studle",
+    "sectionId": "-OSk7r8fCsgzmNYoO4SI",
+    "title": "StudleTest",
+    "triesAllowed": 5
+  },
+  "87LkXCByo0OFiGFGw5kd": {
+    "difficulty": "easy",
+    "gameType": "studle",
+    "sectionId": "-OSk7r8fCsgzmNYoO4SI",
+    "title": "studle",
+    "triesAllowed": 5
+  },
+  "LLI3UdzII896wKg2NtbB": {
+    "difficulty": "Easy",
+    "gameType": "studle",
+    "sectionId": "-OTcdX6MXAttIhPJNLEv",
+    "title": "Studle1",
+    "triesAllowed": 5
+  },
+  "NtpbFaC9TVyUFxh2UYz8": {
+    "difficulty": "Easy",
+    "gameType": "studle",
+    "sectionId": "-OSk7r8fCsgzmNYoO4SI",
+    "title": "Test1",
+    "triesAllowed": 5
+  }
+}
