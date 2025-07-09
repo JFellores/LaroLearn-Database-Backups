@@ -1,0 +1,102 @@
+{
+  "J0syrHU7yizG2rrli2ia": {
+    "numQuestions": 5,
+    "dueDate": "06/18/2025",
+    "rules": {
+      "pointValue": 1,
+      "timeLimit": 60
+    },
+    "difficulty": "easy",
+    "gameType": "flash_quiz",
+    "sectionId": "-OSk7r8fCsgzmNYoO4SI",
+    "title": "test - dont edit",
+    "powerUpsEnabled": true
+  },
+  "K8Ej2gOHkeD3KTSWSOue": {
+    "title": "test",
+    "dueDate": "06/17/2025",
+    "rules": {
+      "timeLimit": 60,
+      "pointValue": 5
+    },
+    "subject": "General",
+    "difficulty": "hard",
+    "powerUpsEnabled": false,
+    "numQuestions": 5
+  },
+  "OlEi5n0NbMhkZeF6wd2A": {
+    "title": "test",
+    "powerUpsEnabled": false,
+    "subject": "General",
+    "rules": {
+      "timeLimit": 60,
+      "pointValue": 5
+    },
+    "dueDate": "06/17/2025",
+    "difficulty": "hard",
+    "numQuestions": 5
+  },
+  "S84xQLFKMntdlXhleBG5": {
+    "dueDate": "06/17/2025",
+    "title": "dqwdqwd",
+    "rules": {
+      "timeLimit": 60,
+      "pointValue": 1
+    },
+    "difficulty": "easy",
+    "subject": "General",
+    "numQuestions": 2,
+    "powerUpsEnabled": false
+  },
+  "SmN0CrD9MKhejk3QBBv6": {
+    "difficulty": "Easy",
+    "numQuestions": 1,
+    "gameType": "flash_quiz",
+    "dueDate": "07/07/2025",
+    "rules": {
+      "timeLimit": 20,
+      "pointValue": 1
+    },
+    "sectionId": "-OTcdX6MXAttIhPJNLEv",
+    "title": "flashquiz1",
+    "powerUpsEnabled": true
+  },
+  "Yv0QtVGtl9br7ETcnjk5": {
+    "numQuestions": 6,
+    "sectionId": "-OSk7r8fCsgzmNYoO4SI",
+    "gameType": "flash_quiz",
+    "title": "tst",
+    "rules": {
+      "pointValue": 1,
+      "timeLimit": 20
+    },
+    "dueDate": "06/19/2025",
+    "difficulty": "easy",
+    "powerUpsEnabled": true
+  },
+  "hRVlaYfOftVqSeJa8mzf": {
+    "powerUpsEnabled": false,
+    "subject": "General",
+    "title": "test",
+    "rules": {
+      "pointValue": 5,
+      "timeLimit": 60
+    },
+    "numQuestions": 5,
+    "difficulty": "hard",
+    "dueDate": "06/17/2025"
+  },
+  "we3QmdC55QwNNmeeG1Eu": {
+    "difficulty": "Easy",
+    "numQuestions": 2,
+    "gameType": "flash_quiz",
+    "dueDate": "06/24/2025",
+    "rules": {
+      "timeLimit": 20,
+      "pointValue": 1
+    },
+    "sectionId": "-OSk7r8fCsgzmNYoO4SI",
+    "title": "tesdt11",
+    "powerUpsEnabled": false
+  }
+}
